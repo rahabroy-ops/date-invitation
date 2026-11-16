@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff1f5">
+  <title>У меня есть к тебе вопрос 💗</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="floating-hearts" aria-hidden="true"><span>♡</span><span>♥</span><span>♡</span><span>♥</span><span>♡</span></div>
+  <main class="shell">
+    <div class="topline"><span class="tiny-heart">♥</span> маленькое приглашение <span class="tiny-heart">♥</span></div>
+
+    <section class="screen active" id="screen-question">
+      <div class="illustration envelope" aria-hidden="true">💌</div>
+      <p class="eyebrow">у меня есть к тебе один вопрос</p>
+      <h1>Пойдёшь со мной<br><em>на свидание?</em></h1>
+      <p class="subtitle">Обещаю хорошую компанию, вкусный кофе и один приятный вечер вместе.</p>
+      <div class="answer-area" id="answer-area">
+        <button class="button button-primary" id="yes-button">Да, конечно! 💗</button>
+        <button class="button button-quiet" id="no-button" type="button">Нет 🙈</button>
+      </div>
+      <p class="microcopy">P.S. Кнопка «Нет» немного стеснительная</p>
+    </section>
+
+    <section class="screen" id="screen-date">
+      <div class="step">ШАГ 1 ИЗ 3</div><div class="illustration">🌷</div>
+      <p class="eyebrow">давай выберем момент</p><h2>Когда тебе удобно?</h2>
+      <p class="subtitle">Выбери одну из дат, когда я свободен.</p>
+      <div class="field-card">
+        <label for="date-input">Доступные даты</label>
+        <select id="date-input"><option value="">Загружаем даты…</option></select>
+        <label for="time-input">Время встречи</label>
+        <input id="time-input" type="time" value="18:00">
+      </div>
+      <p class="error" id="date-error" role="alert"></p>
+      <div class="actions"><button class="button button-secondary" data-back="screen-question">Назад</button><button class="button button-primary" id="date-next">Дальше 💗</button></div>
+    </section>
+
+    <section class="screen" id="screen-place">
+      <div class="step">ШАГ 2 ИЗ 3</div><div class="illustration">📍</div>
+      <p class="eyebrow">теперь самое интересное</p><h2>Куда отправимся?</h2>
+      <p class="subtitle">Выбери место, которое тебе по душе.</p>
+      <div class="place-list" id="place-list"></div>
+      <div class="map-wrap">
+        <div class="map-heading"><span>🗺️</span><strong>Карта места</strong></div>
+        <iframe id="map-frame" title="Карта выбранного места" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <a class="map-link" id="map-link" href="#" target="_blank" rel="noopener">Открыть маршрут в Google Maps ↗</a>
+      </div>
+      <p class="error" id="place-error" role="alert"></p>
+      <div class="actions"><button class="button button-secondary" data-back="screen-date">Назад</button><button class="button button-primary" id="place-next">Это место! 💗</button></div>
+    </section>
+
+    <section class="screen" id="screen-finish">
+      <div class="step">ШАГ 3 ИЗ 3</div><div class="celebration" aria-hidden="true">🥹💗🎉</div>
+      <p class="eyebrow">кажется, у нас свидание!</p><h2 class="final-title">УРААА!</h2>
+      <p class="subtitle">Я уже жду этот день. Спасибо, что согласилась 💞</p>
+      <div class="summary" id="summary"></div>
+      <div class="calendar-card"><div class="calendar-icon">📅</div><div><strong>Добавим наше свидание в календарь?</strong><p>Google попросит разрешение. Без твоего согласия ничего не добавится.</p></div></div>
+      <button class="button button-primary full" id="calendar-button">Разрешить Google Calendar</button>
+      <p class="calendar-status" id="calendar-status" role="status"></p>
+      <button class="text-button" id="restart-button">Посмотреть ещё раз</button>
+      <p class="microcopy">Никаких паролей — только официальное окно Google.</p>
+    </section>
+    <footer>сделано с теплом и немного волнением <span>♥</span></footer>
+  </main>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="app.js"></script>
+</body>
+</html>
